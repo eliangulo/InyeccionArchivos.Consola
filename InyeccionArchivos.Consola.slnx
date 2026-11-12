@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="InyeccionArchivos.Consola/InyeccionArchivos.Consola.csproj" />
+  <Project Path="InyeccionArchivos.Server/InyeccionArchivos.Server.csproj" />
+  <Project Path="InyeccionArchivos.Shared/InyeccionArchivos.Shared.csproj" />
+</Solution>
