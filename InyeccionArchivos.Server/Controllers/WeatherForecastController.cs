@@ -30,8 +30,10 @@ namespace InyeccionArchivos.Server.Controllers
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public ActionResult<IEnumerable<WeatherForecast>> Get()
         {
+            HttpContext.Response.Headers.Add("nuevoClave", "nuevoValor");
+            BadRequest();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -39,6 +41,12 @@ namespace InyeccionArchivos.Server.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+        [HttpPost]
+        public ActionResult<int> Post(WeatherForecast DTO)
+        {
+            return 1;
+            //return BadRequest();
         }
 
         [HttpGet("valores")]
